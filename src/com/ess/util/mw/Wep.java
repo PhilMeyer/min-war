@@ -1,9 +1,9 @@
 package com.ess.util.mw;
 
-public class W {
+public class Wep {
 	public final int pow;
 
-	public W(int pow) {
+	public Wep(int pow) {
 		this.pow = pow;
 	}
 }

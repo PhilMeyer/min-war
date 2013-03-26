@@ -11,7 +11,7 @@ public class Unit {
 	int hp = 1;
 	
 	List<Ability> abilities = new ArrayList<>();
-	List<W> weapons = new ArrayList<>();
+	List<Wep> weapons = new ArrayList<>();
 
 	public Unit(int spd, int str, int mat, int rat, int def, int arm, int cmd){
 		this.spd = spd;
@@ -24,7 +24,7 @@ public class Unit {
 	}
 	
 	public int getDefaultWepPow(){
-		W weapon = weapons.get(0);
+		Wep weapon = weapons.get(0);
 		int pow = 0;
 		if(weapon != null){
 			pow = weapon.pow;
@@ -32,7 +32,7 @@ public class Unit {
 		return pow;
 	}
 
-	public void addWep(W weapon) {
+	public void addWep(Wep weapon) {
 		weapons.add(weapon);
 	}
 }
