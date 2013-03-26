@@ -5,10 +5,9 @@ import java.util.List;
 
 public class Unit {
 
-	public final int str, def, arm, rat, mat, spd;;
-	int cmd;
-	//int rng;
+	public final int str, def, arm, rat, mat, spd, cmd;
 	int hp = 1;
+	int baseSize = 1;
 	
 	List<Ability> abilities = new ArrayList<>();
 	List<Wep> weapons = new ArrayList<>();
