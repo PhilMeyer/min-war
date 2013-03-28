@@ -18,5 +18,13 @@ public class Location {
 	public static void main(String[] args) {
 		System.out.println(new Location(0.0, 14.598));
 	}
+
+	public int intX() {
+		return Math.round((float)x);
+	}
+
+	public int intY() {
+		return Math.round((float)y);
+	}
 	
 }

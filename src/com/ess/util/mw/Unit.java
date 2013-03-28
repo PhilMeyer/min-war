@@ -7,7 +7,7 @@ public class Unit {
 
 	public final int str, def, arm, rat, mat, spd, cmd;
 	int hp = 1;
-	int baseSize = 1;
+	int baseSize = 100;
 	
 	List<Ability> abilities = new ArrayList<>();
 	List<Wep> weapons = new ArrayList<>();
@@ -33,5 +33,9 @@ public class Unit {
 
 	public void addWep(Wep weapon) {
 		weapons.add(weapon);
+	}
+
+	public int getSize() {
+		return baseSize;
 	}
 }
