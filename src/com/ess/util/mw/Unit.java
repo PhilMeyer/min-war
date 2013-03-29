@@ -7,12 +7,13 @@ public class Unit {
 
 	public final int str, def, arm, rat, mat, spd, cmd;
 	int hp = 1;
-	int baseSize = 100;
+	public final int base;
 	
 	List<Ability> abilities = new ArrayList<>();
 	List<Wep> weapons = new ArrayList<>();
+	public final String imagePath;
 
-	public Unit(int spd, int str, int mat, int rat, int def, int arm, int cmd){
+	public Unit(String imagePath, int base, int spd, int str, int mat, int rat, int def, int arm, int cmd){
 		this.spd = spd;
 		this.str = str;
 		this.mat = mat;
@@ -20,6 +21,8 @@ public class Unit {
 		this.def = def;
 		this.arm = arm;
 		this.cmd = cmd;
+		this.imagePath = imagePath;
+		this.base = base;
 	}
 	
 	public int getDefaultWepPow(){
@@ -34,8 +37,8 @@ public class Unit {
 	public void addWep(Wep weapon) {
 		weapons.add(weapon);
 	}
-
-	public int getSize() {
-		return baseSize;
+	
+	public String toString(){
+		return imagePath;
 	}
 }

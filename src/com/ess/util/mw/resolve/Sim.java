@@ -39,8 +39,8 @@ public class Sim {
 	
 	public static void main(String[] args) {
 		Sim sim = new Sim();
-		Unit attacker = UnitFactory.psm();
-		Unit defender = UnitFactory.psm();
+		Unit attacker = UnitFactory.forgeGuard();
+		Unit defender = UnitFactory.forgeGuard();
 		sim.combo(attacker, defender, 3);
 		sim.combined(attacker, defender, 3);
 		sim.pen(attacker, defender);

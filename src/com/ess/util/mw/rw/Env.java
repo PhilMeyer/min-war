@@ -13,6 +13,11 @@ public class Env {
 	Logger log = Logger.getLogger(Env.class);
 	Map<Unit,Location> unitLocations = new HashMap<>();
 
+	public void addUnit(Unit u, double x, double y) {
+		addUnit(u, new Location(x, y));
+	}
+	
+	
 	public void addUnit(Unit u, Location location) {
 		unitLocations.put(u, location);
 	}
@@ -24,12 +29,17 @@ public class Env {
 	public Unit getUnitAt(int x, int y) {
 		for(Entry<Unit,Location> entry : units().entrySet()){
 			double distance = GeometryUtils.distance(new Location(x,y),entry.getValue());
-			log.debug(distance);
-			if(distance < entry.getKey().getSize()/2){
+			//log.debug(distance);
+			if(distance < entry.getKey().base/2){
 				return entry.getKey();
 			}
 		}
 		return null;
+	}
+
+
+	public Location getLocation(Unit selected) {
+		return unitLocations.get(selected);
 	}
 	
 }
