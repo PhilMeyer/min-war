@@ -38,5 +38,11 @@ public class UnitFactory {
 		unit.addWep(new Wep(3));
 		return unit;
 	}
+
+	public static Unit forgeGuard(String name) {
+		Unit u = forgeGuard();
+		u.setName(name);
+		return u;
+	}
 	
 }

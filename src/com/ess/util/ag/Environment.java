@@ -17,6 +17,23 @@ public class Environment {
 
 	Map<Unit, Location> unitLocations = new HashMap<>();
 
+
+	
+	public Unit isCollision(Unit u, Location loc){
+		for (Entry<Unit, Location> entry : unitLocations.entrySet()){
+			Unit potential = entry.getKey();
+			if(potential.equals(u)){
+				continue;
+			}
+			double distance = GeometryUtil.distance(loc, entry.getValue());
+			if(distance < u.base/2 || distance < potential.base/2){
+				return potential;
+			}
+		}
+		return null;
+	}	
+	
+	
 	public List<UnitDistance> getClosestUnits(Unit u1) {
 		Location l = unitLocations.get(u1);
 		List<UnitDistance> list = new ArrayList<>();

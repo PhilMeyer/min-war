@@ -14,14 +14,14 @@ public class ETest extends TestCase{
 
 	Environment e = new Environment();
 
-	Unit ref = UnitFactory.psm();
+	Unit ref = UnitFactory.forgeGuard();
 	
 	@Override		
 	public void setUp(){
 		e.place(ref,new Location(0,0));
 		Random r = new Random();
 		for(int i = 0; i < 100000; i++){
-			e.place(UnitFactory.psm(),new Location(r.nextInt(100000),r.nextInt(100000)));
+			e.place(UnitFactory.forgeGuard(),new Location(r.nextInt(100000),r.nextInt(100000)));
 		}
 	}
 	

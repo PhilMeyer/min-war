@@ -8,6 +8,7 @@ public class Unit {
 	public final int str, def, arm, rat, mat, spd, cmd;
 	int hp = 1;
 	public final int base;
+	String name;
 	
 	List<Ability> abilities = new ArrayList<>();
 	List<Wep> weapons = new ArrayList<>();
@@ -39,6 +40,14 @@ public class Unit {
 	}
 	
 	public String toString(){
-		return imagePath;
+		return name+"-"+imagePath;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

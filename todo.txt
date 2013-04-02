@@ -1,0 +1,33 @@
+
+Collision:
+	Detect when attempting to move unit
+	Pick new target location
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
