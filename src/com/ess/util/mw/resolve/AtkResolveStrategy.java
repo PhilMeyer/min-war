@@ -1,10 +1,10 @@
 package com.ess.util.mw.resolve;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 
 public interface AtkResolveStrategy {
 
-	public boolean hit(Unit a, Unit d);
+	public boolean hit(AltUnit a, AltUnit d);
 	
 	
 }

@@ -1,13 +1,13 @@
 package com.ess.util.mw.resolve;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 
 
 public class StandardAtkStrategy implements AtkResolveStrategy{
 
 	
 	@Override
-	public boolean hit(Unit a, Unit d) {
+	public boolean hit(AltUnit a, AltUnit d) {
 		int atkRoll = Sim.d2.roll();
 		int totalAtk = a.mat + atkRoll;
 		boolean hit = d.def <= totalAtk;

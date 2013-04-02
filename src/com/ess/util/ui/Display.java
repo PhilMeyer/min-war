@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 import org.apache.log4j.Logger;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 import com.ess.util.mw.rw.Env;
 import com.ess.util.mw.rw.Location;
 
@@ -24,7 +24,7 @@ public class Display extends JPanel {
 	Env environment;
 	Logger log = Logger.getLogger(Display.class);
 	private static final String IMAGE_DIR = "C:\\Users\\Phil\\Downloads\\WMH_Vassal421\\";
-	Unit selected;
+	AltUnit selected;
 
 	public Display(final Env environment) {
 		this.environment = environment;
@@ -38,7 +38,7 @@ public class Display extends JPanel {
 
 			private void clicked(final Env environment, MouseEvent e) {
 				// log.debug("Clicked: "+e);
-				Unit u = environment.getUnitAt(e.getX(), e.getY());
+				AltUnit u = environment.getUnitAt(e.getX(), e.getY());
 				if (u != null) {
 					log.debug(u);
 					selected = u;
@@ -53,7 +53,7 @@ public class Display extends JPanel {
 		super.paintComponent(g);
 		g.setColor(Color.DARK_GRAY);
 		drawSelected(g);
-		for (Entry<Unit, Location> entry : environment.units().entrySet()) {
+		for (Entry<AltUnit, Location> entry : environment.units().entrySet()) {
 			int drawX = entry.getValue().intX();
 			int drawY = entry.getValue().intY();
 			Image sprite = getImage(entry.getKey().imagePath);

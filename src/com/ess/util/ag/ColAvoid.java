@@ -1,6 +1,6 @@
 package com.ess.util.ag;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 import com.ess.util.mw.rw.Location;
 
 public class ColAvoid {
@@ -18,45 +18,43 @@ public class ColAvoid {
 		}
 	}
 	
-	public Location getWorkable(Unit u1, Unit u2, double range){
+	public Location getWorkable(AltUnit u1, AltUnit u2, double range){
 		Location l1 = e.unitLocations.get(u1);
 		Location l2 = e.unitLocations.get(u2);
 		Location ideal = getIdeal(l1, l2, u1.base, u2.base, range);
-		Unit collision = e.isCollision(u1, ideal);
+		AltUnit collision = e.isCollision(u1, ideal);
 		if(collision == null){
-			System.out.println("Ideal was free: "+ideal);
+			//System.out.println("Ideal was free: "+ideal);
 			return ideal;
 		}
-		else{
-			System.out.println("Ideal was occupied: "+ideal);
-		}
+		//System.out.println("Ideal was occupied: "+ideal);
+		
 		int offset = 1;
 		double idealDist = range + u1.base/2 + u2.base/2;
 		int angle = GeometryUtil.getAngle(l2, l1);
-		Location test = GeometryUtil.getPointWithAngleAndRadius(l2, angle, idealDist);
-		System.out.println("Calculated ideal: "+test);
 		while(offset < 360){
+			//System.out.println("Offset="+offset);
 			int la = angle-offset;
 			int ra = angle+offset;
 			Location left = GeometryUtil.getPointWithAngleAndRadius(l2, la, idealDist);
 			Location right = GeometryUtil.getPointWithAngleAndRadius(l2, ra, idealDist);
-			System.out.println("L angle = "+la);
-			System.out.println("R angle = "+ra);
-			System.out.println("Ideal Dist=("+idealDist+") L="+left+ " R="+right);
-			Unit lCol = e.isCollision(u1, left);
-			Unit rCol = e.isCollision(u2, right);
+			//System.out.println("L angle = "+la);
+			//System.out.println("R angle = "+ra);
+			//System.out.println("Ideal Dist=("+idealDist+") L="+left+ " R="+right);
+			AltUnit lCol = e.isCollision(u1, left);
+			AltUnit rCol = e.isCollision(u2, right);
 			if(lCol == null){
-				System.out.println("Left is free!");
+				//System.out.println("Left is free!");
 				return left;
 			}
 			if(rCol == null){
-				System.out.println("Right is free!");
+				//System.out.println("Right is free!");
 				return right;
 			}
-			System.out.println("Both occupied.");
+			//System.out.println("Both occupied.");
 			offset++;			
 		}
-		return ideal;
+		return null;
 	}
 	
 	

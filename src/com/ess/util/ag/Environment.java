@@ -10,18 +10,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 import com.ess.util.mw.rw.Location;
 
 public class Environment {
 
-	Map<Unit, Location> unitLocations = new HashMap<>();
+	public Map<AltUnit, Location> unitLocations = new HashMap<>();
 
 
 	
-	public Unit isCollision(Unit u, Location loc){
-		for (Entry<Unit, Location> entry : unitLocations.entrySet()){
-			Unit potential = entry.getKey();
+	public AltUnit isCollision(AltUnit u, Location loc){
+		for (Entry<AltUnit, Location> entry : unitLocations.entrySet()){
+			AltUnit potential = entry.getKey();
 			if(potential.equals(u)){
 				continue;
 			}
@@ -34,10 +34,10 @@ public class Environment {
 	}	
 	
 	
-	public List<UnitDistance> getClosestUnits(Unit u1) {
+	public List<UnitDistance> getClosestUnits(AltUnit u1) {
 		Location l = unitLocations.get(u1);
 		List<UnitDistance> list = new ArrayList<>();
-		for (Entry<Unit, Location> entry : unitLocations.entrySet()) {
+		for (Entry<AltUnit, Location> entry : unitLocations.entrySet()) {
 			if(entry.getKey().equals(u1)){
 				continue;
 			}
@@ -50,10 +50,10 @@ public class Environment {
 	}
 
 	class UnitDistance implements Comparable<UnitDistance>{
-		Unit u;
+		AltUnit u;
 		double d;
 
-		public UnitDistance(Unit u, double d) {
+		public UnitDistance(AltUnit u, double d) {
 			this.u = u;
 			this.d = d;
 		}
@@ -101,7 +101,7 @@ public class Environment {
 		// TODO Auto-generated method stub
 	}
 
-	public void place(Unit u, Location location) {
+	public void place(AltUnit u, Location location) {
 		unitLocations.put(u, location);
 	}
 

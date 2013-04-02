@@ -3,7 +3,7 @@ package com.ess.util.mw;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Unit {
+public class AltUnit {
 
 	public final int str, def, arm, rat, mat, spd, cmd;
 	int hp = 1;
@@ -14,7 +14,7 @@ public class Unit {
 	List<Wep> weapons = new ArrayList<>();
 	public final String imagePath;
 
-	public Unit(String imagePath, int base, int spd, int str, int mat, int rat, int def, int arm, int cmd){
+	public AltUnit(String imagePath, int base, int spd, int str, int mat, int rat, int def, int arm, int cmd){
 		this.spd = spd;
 		this.str = str;
 		this.mat = mat;

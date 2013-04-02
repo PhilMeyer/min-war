@@ -6,7 +6,7 @@ import java.util.Random;
 import junit.framework.TestCase;
 
 import com.ess.util.ag.Environment.UnitDistance;
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 import com.ess.util.mw.UnitFactory;
 import com.ess.util.mw.rw.Location;
 
@@ -14,7 +14,7 @@ public class ETest extends TestCase{
 
 	Environment e = new Environment();
 
-	Unit ref = UnitFactory.forgeGuard();
+	AltUnit ref = UnitFactory.forgeGuard();
 	
 	@Override		
 	public void setUp(){

@@ -1,9 +1,9 @@
 package com.ess.util.mw.resolve;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 
 public interface DamResolveStrategy {
 
-	int resolve(Unit a, Unit b, int pow);
+	int resolve(AltUnit a, AltUnit b, int pow);
 	
 }

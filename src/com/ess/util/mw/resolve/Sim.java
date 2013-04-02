@@ -3,7 +3,7 @@ package com.ess.util.mw.resolve;
 import java.text.MessageFormat;
 
 import com.ess.util.mw.Die;
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 import com.ess.util.mw.UnitFactory;
 
 public class Sim {
@@ -14,7 +14,7 @@ public class Sim {
 	DamResolveStrategy damStrategy = new StandardDamStrategy();
 
 
-	public int resolve(AtkResolveStrategy atkStrat, DamResolveStrategy damStrat, Unit a, Unit d, int pow) {
+	public int resolve(AtkResolveStrategy atkStrat, DamResolveStrategy damStrat, AltUnit a, AltUnit d, int pow) {
 		boolean hit = atkStrat.hit(a, d);
 		int calcDam = 0;
 		if (hit) {
@@ -29,7 +29,7 @@ public class Sim {
 		return calcDam;
 	}
 	
-	public int resolve(Unit a, Unit d, int pow) {
+	public int resolve(AltUnit a, AltUnit d, int pow) {
 		return resolve(atkStrategy, damStrategy, a, d, pow);
 	}
 
@@ -39,23 +39,23 @@ public class Sim {
 	
 	public static void main(String[] args) {
 		Sim sim = new Sim();
-		Unit attacker = UnitFactory.forgeGuard();
-		Unit defender = UnitFactory.forgeGuard();
+		AltUnit attacker = UnitFactory.forgeGuard();
+		AltUnit defender = UnitFactory.forgeGuard();
 		sim.combo(attacker, defender, 3);
 		sim.combined(attacker, defender, 3);
 		sim.pen(attacker, defender);
 	}
 	
-	public void combo(Unit attacker, Unit defender, int pow){
+	public void combo(AltUnit attacker, AltUnit defender, int pow){
 		resolve(attacker, defender, pow);
 		resolve(attacker, defender, pow);
 	}
 	
-	public void combined(Unit attacker, Unit defender, int pow){
+	public void combined(AltUnit attacker, AltUnit defender, int pow){
 		resolve(attacker, defender, pow+pow);
 	}
 	
-	public void pen(Unit attacker, Unit defender){
+	public void pen(AltUnit attacker, AltUnit defender){
 		DamResolveStrategy penStrategy = new PenDamStrategy();
 		resolve(atkStrategy, penStrategy, attacker, defender, -1);
 	}

@@ -1,6 +1,6 @@
 package com.ess.util.ui;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 import com.ess.util.mw.UnitFactory;
 import com.ess.util.mw.rw.Env;
 import com.ess.util.mw.rw.Location;

@@ -1,11 +1,11 @@
 package com.ess.util.mw.resolve;
 
-import com.ess.util.mw.Unit;
+import com.ess.util.mw.AltUnit;
 
 public class StandardDamStrategy implements DamResolveStrategy {
 
 	@Override
-	public int resolve(Unit a, Unit d, int pow) {
+	public int resolve(AltUnit a, AltUnit d, int pow) {
 		int damRoll = Sim.d2.roll();
 		int ps = pow + a.str;
 		int calcDam = ps + damRoll - d.arm;
